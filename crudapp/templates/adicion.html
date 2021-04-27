@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class='container mt-3'>
+
+    <h4> Nuevo Estudiante</h4>
+    <hr style="color: rgb(255, 0, 0);">
+    <form action="" method='POST'>
+      {% csrf_token %}
+       <div class='form-group'>
+         <label for="">Identificacion</label>
+         <input type="text"name='identificacion'class='form-control'>
+       </div>
+       <div class='form-group'>
+         <label for="">Nombre</label>
+         <input type="text"name='nombre'class='form-control'>
+      </div><div class='form-group'>
+         <label for="">Apellido</label>
+         <input type="text"name='apellido'class='form-control'>
+      </div><div class='form-group'>
+         <label for="">Telefono</label>
+         <input type="text"name='telefono'class='form-control'>
+      </div>
+      <div class='form-group'>
+        <label for="">Email</label>
+        <input type="text"name='email'class='form-control'>
+      </div>
+      <div class='form-group'style='padding: 10px 10px;'>
+        <button class='btn btn-warning' type="submit">Agregar</button>
+        <a href="{% url 'show' %}"class='btn btn-warning'>Mostrar detalles</a>
+      </div>
+      
+    </form>
+
+
+</div>
+
+
+{% endblock %}

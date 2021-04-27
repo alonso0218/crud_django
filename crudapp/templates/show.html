@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+ <div class='container mt-3'>
+    <h4 style='color:rgba(10, 0, 97, 0.794)'> Estudiante Detalle 
+     <br> CRUD CON DJANGO</h4><!--permitimos ingresar un usurio nuevo -->
+    <a href="{% url 'adicion' %}"class="btn btn-sm btn-info">Agregar Nuevo</a>
+    <table class='table'>
+        <thead> 
+            <tr style='color:rgb(38, 23, 243)'>
+               <th>Identificacion </th><!--generamos la planilla de mostrar el registro-->
+               <th>Nombre</th>
+               <th>Apellido</th>
+               <th>Telefono </th>
+               <th>Email</th>
+               <th>Accion </th>
+
+            </tr> 
+        </thead>
+        <tbody>
+           {% for s in estudiante %}<!--recorremos cada registro para que nos los muestre-->
+            <tr>
+              <td> {{s.id}}</td>
+              <td>{{ s.nombre }}</td>
+              <td>{{ s.apellido }}</td>
+              <td>{{ s.telefono }}</td>
+              <td>{{ s.email }}</td>
+              <td>
+                <a href="update/{{s.id}}"class="btn btn-sm btn-info"> Modificar</a>
+                <a href="delete/{{s.id}}"class="btn btn-sm btn-danger">Eliminar</a>
+              </td>
+            </tr> 
+            {% endfor %}
+        </tbody>
+    </table>
+
+ </div>
+{% endblock %}

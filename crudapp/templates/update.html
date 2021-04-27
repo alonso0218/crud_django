@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class='container mt-3'>
+
+    <h4> Actualizar</h4>
+    <hr style="color: rgb(255, 0, 0);">
+    <form action="/update/{{estudiante.id}}" method='POST'>
+      {% csrf_token %}
+       <div class='form-group'>
+         <label for="">Identificacion</label>
+         <input type="text"name='identificacion'value='{{estudiante.identificacion}}'class='form-control'>
+       </div>
+       <div class='form-group' >
+         <label for="">Nombre</label>
+         <input type="text"name='nombre'value='{{estudiante.nombre}}'class='form-control'>
+      </div><div class='form-group'>
+         <label for="">Apellido</label>
+         <input type="text"name='apellido'value='{{estudiante.apellido}}'class='form-control'>
+      </div><div class='form-group'>
+         <label for="">Telefono</label>
+         <input type="text"name='telefono'value='{{estudiante.telefono}}'class='form-control'>
+      </div>
+      <div class='form-group'>
+        <label for="">Email</label>
+        <input type="text"name='email'value='{{estudiante.email}}'class='form-control'>
+      </div>
+      <div class='form-group'style='padding: 10px 10px;'>
+        <button class='btn btn-warning' type="submit">Agregar</button>
+        <a href="{% url 'show' %}"class='btn btn-warning'>Mostrar Detalles</a>
+      </div>
+      
+   </form>
+
+
+</div>
+
+
+{% endblock %}
